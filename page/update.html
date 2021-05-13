@@ -4,43 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../traitement/css/bootstrap.css">
+    <script src="../traitement/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../traitement/js/bootstrp.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <style>
+        body{
+            padding: 0.4cm;
+        }
+    </style>
         <form action="" method="POST">
            <table class="table">
                 <tr class="row">
-                <td class="col">id Client : <input type="number" name="id_cli" id="id_cli"></td>
+                <td class="col">id Client : <br> <input type="number" name="id_cli" id="id_cli"></td>
                 <td class="col">Prenom Client:<br><input type="text" name="prenom_cli" id="prenom_cli"></td>
                 <td class="col">Nom Client:<br><input type="text" name="nom_cli" id="nom_cli"></td>
-                <td class="col">Avance : <input type="number" name="avance_cli" id="avance_cli"></td>
-                <td class="col">Reste : <input type="number" name="reste_a_payer_cli" id="reste_a_payer_cli"></td>
+                <td class="col">Id du produit : <br> <input type="number" name="id_prod" id="id_prod"></td>
+                <tr class="row">
+                <td class="col">Date de livraison : <br> <input type="date" name="date_liv" id="date_liv"></td>
+                <td class="col">Numero livraison : <br> <input type="number" name="num_liv" id="num_liv"></td>
+                <td class="col">Nom du produit : <br> <input type="text" name="nom_prod" id="nom_prod"></td>
+                <td class="col">Quantite : <br> <input type="number" name="quantite_prod" id="quantite_prod"></td>   
+            </tr>
+               <tr class="row">
+               <td class="col">Prix unitaire : <br> <input type="number" name="" id="prix_prod"> </td>
+               <td class="col">Avance : <br><input type="number" name="avance_cli" id="avance_cli"></td>
+                <td class="col">Reste : <br><input type="number" name="reste_a_payer_cli" id="reste_a_payer_cli"></td>
+            </tr>
                 <button id="send" type="submit">Envoyer</button>
            </table>     
         </form>
-        <script>
-            $("#send").click(function () {
-                var id_cli = $("#id_cli").val();
-                var prenom_cli = $("#prenom_cli").val();
-                var nom_cli = $("#nom_cli").val();
-                var avance_cli = $("#avance_cli").val();
-                var reste_a_payer_cli = $("#reste_a_payer_cli").val();
-               $.ajax({
-                    url:"traitement.php",
-                    type:"POST",
-                    data:
-                    {
-                       'id_cli': id_cli,
-                       'prenom_cli' : prenom_cli ,
-                       'nom_cli': nom_cli,
-                       'avance_cli': avance_cli,
-                       'reste_a_payer_cli': reste_a_payer_cli,
-                    }
-               })
-  })
-        </script>
+        <script src="../traitement/js/traitement.js"></script>
 </body>
 </html>
