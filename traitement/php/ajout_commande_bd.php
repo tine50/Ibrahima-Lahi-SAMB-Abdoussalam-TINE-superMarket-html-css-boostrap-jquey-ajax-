@@ -1,6 +1,6 @@
 <?php
 include "connection_bd.php";
-
+$date = $_POST['date_liv'];
 $id_cli = $_POST['client'];
 echo $Q1 = $_POST['Q1'];
 echo $article1 = $_POST['article1'];
@@ -19,17 +19,17 @@ echo $Q4 = $_POST['Q4'];
 echo $article4 = $_POST['article4'];
 echo $prix4 = $_POST['prix4'];
 
-$insertArticle1 = $bdd->prepare("INSERT INTO `produit`(`nom_prod`, `quantite_prod`, `prix_prod`) VALUES  (?,?,?);");
-$insertArticle1->execute(array($article1, $Q1, $prix1));
+$insertCom1 = $bdd->prepare("INSERT INTO `commander`(`id_prod`, `id_cli`, `date_liv`, `quantite_com`, `prix_com`) VALUES (?,?,?,?,?)");
+$insertCom1->execute(array($id_cli, $article1,$date,$Q1, $prix1));
 
-$insertArticle2 = $bdd->prepare("INSERT INTO `produit`(`nom_prod`, `quantite_prod`, `prix_prod`) VALUES  (?,?,?);");
-$insertArticle2->execute(array($article2, $Q2, $prix2));
+$insertCom2 = $bdd->prepare("INSERT INTO `commander`(`id_prod`, `id_cli`, `date_liv`, `quantite_com`, `prix_com`) VALUES (?,?,?,?,?)");
+$insertCom2->execute(array($id_cli, $article2,$date,$Q2, $prix2));
 
-$insertArticle3 = $bdd->prepare("INSERT INTO `produit`(`nom_prod`, `quantite_prod`, `prix_prod`) VALUES  (?,?,?);");
-$insertArticle3->execute(array($article3, $Q3, $prix3));
+$insertCom3 = $bdd->prepare("INSERT INTO `commander`(`id_prod`, `id_cli`, `date_liv`, `quantite_com`, `prix_com`) VALUES (?,?,?,?,?)");
+$insertCom3->execute(array($id_cli, $article3,$date,$Q3, $prix3));
 
-$insertArticle4 = $bdd->prepare("INSERT INTO `produit`(`nom_prod`, `quantite_prod`, `prix_prod`) VALUES  (?,?,?);");
-$insertArticle4->execute(array($article4, $Q4, $prix4));
+$insertCom4 = $bdd->prepare("INSERT INTO `commander`(`id_prod`, `id_cli`, `date_liv`, `quantite_com`, `prix_com`) VALUES (?,?,?,?,?)");
+$insertCom4->execute(array($id_cli, $article4,$date,$Q4, $prix4));
 
 
 ?>
