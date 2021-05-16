@@ -1,5 +1,5 @@
 <?php
-    $bdd = new PDO("mysql:host=localhost;dbname=supermarket",'misteriks','p@pes@mb7777ibou1234');
+    $bdd = new PDO("mysql:host=localhost;dbname=supermarket",'root','');
     $id = $_POST['id_cli'];
     $prenom_cli = $_POST['prenom_cli'];
     $nom_cli = $_POST['nom_cli'];
