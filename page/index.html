@@ -1,102 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../traitement/css/bootstrap.css">
-    <script src="../traitement/js/bootstrap.js"></script>
-    <script src="../traitement/js/traitement.js"></script>
-    <title>Welcome</title>
-</head>
-<body>
-    <div class="row">
-        <div class="d-flex flex-column p-3 text-white bg-dark col-3" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-              <span class="fs-4">Sidebar</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                  Gestion des articles
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                  Gestion des ventes
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                  Gestion des achats
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                  Gestion de la clientèle
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                  Faire un inventaire
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                 Dépenses et recettes
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-9">
-            <form action="" method="POST">
-                <table class="table">
-                     <tr class="row">
-                     <td class="col">id Client : <input type="number" name="id_cli" id="id_cli"></td>
-                     <td class="col">Prenom Client:<br><input type="text" name="prenom_cli" id="prenom_cli"></td>
-                     <td class="col">Nom Client:<br><input type="text" name="nom_cli" id="nom_cli"></td>
-                     <td class="col">Avance : <input type="number" name="avance_cli" id="avance_cli"></td>
-                     <td class="col">Reste : <input type="number" name="reste_a_payer_cli" id="reste_a_payer_cli"></td>
-                </table>     
-                <button id="send" type="submit" class="btn btn-success">Enregistrer</button>
-             </form>
-          </div>
-    </div>
-     
-    <script>
-        $("#send").click(function () {
-            var id_cli = $("#id_cli").val();
-            var prenom_cli = $("#prenom_cli").val();
-            var nom_cli = $("#nom_cli").val();
-            var avance_cli = $("#avance_cli").val();
-            var reste_a_payer_cli = $("#reste_a_payer_cli").val();
-           $.ajax({
-                url:"traitement.php",
-                type:"POST",
-                data:
-                {
-                   'id_cli': id_cli,
-                   'prenom_cli' : prenom_cli ,
-                   'nom_cli': nom_cli,
-                   'avance_cli': avance_cli,
-                   'reste_a_payer_cli': reste_a_payer_cli,
-                }
-           })
-        })
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../traitement/css/style.css">
+        <script src="../traitement/jquery/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <!-- wrapper start -->
+        <div class="wrapper">
+            <!-- header menu start -->
+            <div class="header">
+                <div class="header-menu">
+                    <div class="logo">
+                        <img src="../p1.jpg" alt="" srcset="">&nbsp;&nbsp;<div class="title">PIGEON <span>ONLINE</span></span></div>
+                    </div>
+                    
+                    <!-- <div class="sidebar-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                          </svg>
+                    </div> -->
+                    <ul>
+                        <li id="ventes">
+                            <a href="#" style=" margin-bottom: 40px;">
+                                <i class="fas fa-arrow-alt-circle-right" style="font-size: 40px;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- header menu end -->
+            <!-- sidebar start -->
+            <div class="sidebar">
+                 <div class="sidebar-menu">
+                    <center class="profile">
+                        <img src="../p1.jpg">
+                        <p>image 1</p>
+                    </center>
+                    <li class="item" id="accueil">
+                        <a href="#" class="menu-btn">
+                          <i class="fas fa-home"></i><span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item" id="article">
+                        <a href="#" class="menu-btn">
+                            <i class="far fa-address-card"></i><span>Gestion des articles</span><i class="fas fa-angle-double-right drop-down"></i>
+                        </a>
+                      <!--   <div class="sub-menu">
+                            <a href="#"><span>Dépenses</span></a>
+                            <a href="#"><span>Recette</span></a>
+                        </div> -->
+                    </li>
+                    <li class="item" id="vente">
+                        <a href="#" class="menu-btn">
+                          <i class="fas fa-cart-plus"></i><span>Gestion des ventes</span><i class="fas fa-angle-double-right drop-down"></i>
+                        </a>
+                        <!-- <div class="sub-menu">
+                            <a href="#"><span>Dépenses</span></a>
+                            <a href="#"><span>Recette</span></a>
+                        </div> -->
+                    </li>
+                      <li class="item" id="achats">
+                          <a href="#" class="menu-btn">
+                            <i class="fas fa-headphones"></i><span>Gestion des achats</span><i class="fas fa-angle-double-right drop-down"></i>
+                          </a>
+                          <!-- <div class="sub-menu">
+                            <a href="#"><span>Dépenses</span></a>
+                            <a href="#"><span>Recette</span></a>
+                        </div> -->
+                      </li>
+                      <li class="item" id="clientele">
+                        <a href="#" class="menu-btn">
+                          <i class="fas fa-arrows-alt"></i><span>Gestion de la clientèle</span><i class="fas fa-angle-double-right drop-down"></i>
+                        </a>
+                        <!-- <div class="sub-menu">
+                            <a href="#"><span>Dépenses</span></a>
+                            <a href="#"><span>Recette</span></a>
+                        </div> -->
+                      </li>
+                      <li class="item" id="inventaire">
+                        <a href="#" class="menu-btn">
+                          <i class="fas fa-external-link-square-alt"></i><span>Faire un inventaire </span><i class="fas fa-angle-double-right drop-down"></i>
+                        </a>
+                        <!-- <div class="sub-menu">
+                            <a href="#"><span>Dépenses</span></a>
+                            <a href="#"><span>Recette</span></a>
+                        </div> -->
+                      </li>
+                      <li class="item" id="recette"> 
+                        <a href="#" class="menu-btn">
+                          <i class="fas fa-exchange-alt"></i><span>Recette</span><i class="fas fa-angle-double-right drop-down"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#"><i class="fas fa-comment-dollar"></i> <span>Dépenses</span></a>
+                            <a href="#"><i class="fas fa-eye-slash"></i><span>Recette</span></a>
+                        </div>
+                      </li>
+
+                 </div>
+            </div>
+            <!-- sidebar end -->
+            <!--main container start-->
+            <div class="main-container">
+                <div class="sidebar-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="container">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+                
+             </div>   
+            <!--main container end-->
+            
+        </div>
+        <!-- wrapper end -->
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $(".sidebar-btn").click(function(){
+                $(".wrapper").toggleClass("collapse");
+            });
+        });
+
+        $(document).ready(function(){
+            $(".item").mouseover(function(){
+                $(".item .menu-btn li:last-child").attr('class', 'fas fa-angle-double-down drop-down');
+            });
+        });
+        </script>
+    </body>
 </html>
